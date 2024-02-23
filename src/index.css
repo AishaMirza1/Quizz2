@@ -1,0 +1,57 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+/* questionIndicater color #828fa3 
+progress bar color #a729f4 
+option background color #374a60
+svg color #2d3949
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #313e51;
+  color: #f6f9fa;
+  font-family: "Roboto", sans-serif;
+}
+.home-page {
+  width: 100%;
+  padding: 10%;
+  height: 100vh;
+  display: flex;
+  gap: 80px;
+}
+.heading {
+  font-size: clamp(2.5rem, 4vw + 1rem, 3.8rem);
+  letter-spacing: 2.4px;
+  font-weight: 200;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.heading span {
+  display: block;
+  font-weight: 800;
+}
+.headingContainer p {
+  color: #828fa3;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 788px) {
+  .home-page {
+    padding: 10%;
+    height: fit-content;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .heading {
+    font-size: clamp(2rem, 5vw + 1rem, 3.8rem);
+    margin-bottom: 0.3rem;
+  }
+}
