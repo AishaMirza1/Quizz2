@@ -26,6 +26,7 @@ body {
   grid-template-columns: 1.1fr 1fr;
   gap: 30px;
   position: relative;
+  margin-bottom: 2rem;
 }
 .svg {
   position: absolute;
@@ -87,11 +88,18 @@ body {
   width: 95%;
   transition: transform 0.4s ease;
 }
+.option {
+  height: fit-content;
+}
 .option:hover {
   transform: translate(5px, -6px);
 }
-.option p {
-  font-size: 1.4rem;
+.subject-options p,
+.question-options p {
+  text-align: left;
+  width: 100%;
+  text-wrap: wrap;
+  font-size: 1.1rem;
   color: #f7f5fb;
 }
 .option span {
@@ -101,8 +109,8 @@ body {
   color: #374a60;
   font-weight: 600;
   border-radius: 4px;
-  height: 40px;
-  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,6 +148,31 @@ body {
   letter-spacing: 1.7px;
   line-height: 1.7;
   margin-bottom: 2rem;
+}
+/* ques */
+.question-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.question {
+  font-size: 1.6rem;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+  margin-bottom: 4rem;
+}
+.time-indicator {
+  background-color: #374a60;
+  width: 90%;
+  height: 9px;
+  border-radius: 5px;
+  padding: 2.5px 4px;
+}
+.time-indicator div {
+  width: 50%;
+  height: 100%;
+  background-color: #a729f4;
+  border-radius: inherit;
 }
 @media screen and (max-width: 850px) {
   .home-page {

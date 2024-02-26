@@ -1,5 +1,9 @@
-function Question() {
-  return <h1 className="text-3xl font-bold underline">Hello Question</h1>;
+import PropTypes from "prop-types";
+function Question({ ques }) {
+  return <p className="question">{ques}</p>;
 }
 
 export default Question;
+Question.propTypes = {
+  ques: PropTypes.string,
+};

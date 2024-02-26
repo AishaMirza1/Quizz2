@@ -4,5 +4,5 @@ export default function Button({ text }) {
 }
 
 Button.propTypes = {
-  text: PropTypes.text,
+  text: PropTypes.string,
 };

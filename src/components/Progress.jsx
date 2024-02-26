@@ -1,3 +1,7 @@
-export default function Progress() {
-  return <div></div>;
+export default function TimeIndicator() {
+  return (
+    <div className="time-indicator">
+      <div></div>
+    </div>
+  );
 }
