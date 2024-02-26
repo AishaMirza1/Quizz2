@@ -1,19 +1,27 @@
+import Button from "./components/Button";
+import Header from "./components/Header";
 import OptionInputContainer from "./components/OptionInput";
+import Result from "./components/Result";
 function App() {
   return (
     <main className="home-page">
-      {/* starting screen */}
-      <div className="headingContainer">
-        <h1 className="heading">
-          Welcome to the <span>FrontEnd Quizz!</span>
-        </h1>
-        <p>Pick a subject to get started.</p>
+      {/* Question screen */}
+      <Header heading="Quiz Completed" spanText="You Scored..." />
+      <div>
+        <Result />
+        <Button text="Play Again" />
       </div>
+      {/* starting screen */}
+      <Header heading="Welcome To The" spanText="Frontend Quiz!" />
       <div>
         <OptionInputContainer />
-        <OptionInputContainer />
-        <OptionInputContainer />
-        <OptionInputContainer />
+        <Button text="Start quizz" />
+      </div>
+      {/* result screen */}
+      <Header heading="Quiz Completed" spanText="You Scored..." />
+      <div>
+        <Result />
+        <Button text="Play Again" />
       </div>
     </main>
   );
