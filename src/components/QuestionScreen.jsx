@@ -1,5 +1,3 @@
-// import { useQuiz } from "../context/quizzContext";
-
 import { useQuiz } from "../context/quizzContext";
 import Button from "./Button";
 import OptionInputContainer from "./OptionInput";

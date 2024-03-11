@@ -2,7 +2,17 @@ import { useEffect, useState } from "react";
 import { useQuiz } from "../context/quizzContext";
 
 function OptionInputContainer() {
-  const { questions, currentIndex, category, handleCategoryChange } = useQuiz();
+  const {
+    questions,
+    currentIndex,
+    category,
+    handleCategoryChange,
+    currentAns,
+    setCurrentAns,
+    handleMarks,
+  } = useQuiz();
+
+  console.log(currentAns);
   const [options, setOptions] = useState([]);
   const tags = ["A", "B", "C", "D"];
   const categories = ["Arts", "Geography", "G&K", "Films"];
@@ -26,7 +36,17 @@ function OptionInputContainer() {
       {category
         ? options.map((option, index) => {
             return (
-              <button key={index} className="option">
+              <button
+                onClick={(e) => {
+                  setCurrentAns(e.target.value);
+                  handleMarks(e.target.value);
+                }}
+                style={!currentAns ? { transform: "translate(5, -6)" } : {}}
+                disabled={currentAns}
+                key={option}
+                value={option}
+                className={currentAns === option ? "currentOption" : "option"}
+              >
                 <span>{tags[index]}</span>
                 <p>{option}</p>
               </button>

@@ -1,25 +1,34 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
 // creating context
 const QuizContext = createContext();
 // context Provider function
 function QuizzProvider({ children }) {
+  const [marks, setMarks] = useState(0);
   const [category, setCategory] = useState(null);
   const [questions, setQuestions] = useState(null);
   const [loading, setIsloading] = useState(true);
+  const [currentAns, setCurrentAns] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
 
   function handleUpdateCurrentIndex() {
     if (currentIndex < 9) {
       setCurrentIndex((prev) => prev + 1);
     }
+    setCurrentAns(null);
   }
   function handleCategoryChange(e) {
     setCategory(e.target.value);
     setCurrentIndex(0);
   }
-
-  useEffect(() => {
+  function handleMarks(e) {
+    if (e === questions[currentIndex].correct_answer) {
+      setMarks((marks) => marks + 1);
+    }
+  }
+  console.log(marks);
+  useLayoutEffect(() => {
     async function fetchques() {
       const api_category =
         category == "Arts"
@@ -38,7 +47,7 @@ function QuizzProvider({ children }) {
       setIsloading(false);
       setQuestions(data.results);
     }
-    fetchques();
+    if (category) fetchques();
   }, [category]);
 
   return (
@@ -53,6 +62,13 @@ function QuizzProvider({ children }) {
         handleCategoryChange,
         setCategory,
         handleUpdateCurrentIndex,
+        marks,
+        setMarks,
+        currentAns,
+        setCurrentAns,
+        handleMarks,
+        isFinished,
+        setIsFinished,
       }}
     >
       {children}

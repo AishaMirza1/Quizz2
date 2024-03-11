@@ -76,7 +76,8 @@ body {
 }
 
 .option,
-.call-to-action {
+.call-to-action,
+.currentOption {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -91,9 +92,12 @@ body {
 .option {
   height: fit-content;
 }
-.option:hover {
+
+.currentOption {
   transform: translate(5px, -6px);
+  background-color: #a729f4;
 }
+
 .subject-options p,
 .question-options p {
   text-align: left;
@@ -101,8 +105,10 @@ body {
   text-wrap: wrap;
   font-size: 1.1rem;
   color: #f7f5fb;
+  pointer-events: none;
 }
-.option span {
+.option span,
+.currentOption span {
   font-size: 1.5rem;
   display: inline-block;
   background-color: #f7f5fb;

@@ -1,11 +1,11 @@
 import Button from "./components/Button";
 import Header from "./components/Header";
 import OptionInputContainer from "./components/OptionInput";
-// import Result from "./components/Result";
+import Result from "./components/Result";
 import { useQuiz } from "./context/quizzContext";
 import QuestionScreen from "./components/QuestionScreen";
 function App() {
-  const { category } = useQuiz();
+  const { category, isFinished } = useQuiz();
   return (
     <main className="home-page">
       {/* starting screen */}
@@ -19,13 +19,17 @@ function App() {
         </>
       )}
       {/* Question screen */}
-      {category && <QuestionScreen />}
-      {/* result screen 
-        {/* <Header heading="Quiz Completed" spanText="You Scored..." />
-        <div>
-          <Result />
-          <Button text="Play Again" />
-        </div> */}
+      {category && !isFinished && <QuestionScreen />}
+      {/* result screen  */}
+      {isFinished && (
+        <>
+          <Header heading="Quiz Completed" spanText="You Scored..." />
+          <div>
+            <Result />
+            <Button text="Play Again" />
+          </div>{" "}
+        </>
+      )}
     </main>
   );
 }
