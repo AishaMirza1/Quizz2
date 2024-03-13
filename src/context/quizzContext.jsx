@@ -27,7 +27,15 @@ function QuizzProvider({ children }) {
       setMarks((marks) => marks + 1);
     }
   }
-  console.log(marks);
+  function handleReset() {
+    setCategory(null);
+    setCurrentAns(null);
+    setIsFinished(false);
+    setCurrentIndex(0);
+    setMarks(0);
+    setIsloading(true);
+    setQuestions(null);
+  }
   useLayoutEffect(() => {
     async function fetchques() {
       const api_category =
@@ -69,6 +77,7 @@ function QuizzProvider({ children }) {
         handleMarks,
         isFinished,
         setIsFinished,
+        handleReset,
       }}
     >
       {children}
